@@ -1,0 +1,12 @@
+#!/bin/sh
+
+wall=$(find ~/Pictures/wall -type f -name "*.jpg" -o -name "*.png" | shuf -n 1)
+swww kill
+swww init
+swww img $wall
+wal -c 
+wal -i $wall
+convert -scale 50% -blur 4x2 -resize 100% $wall ~/Pictures/rofi/current.blur & disown
+alacrittyColosrs.sh & disown
+killall waybar
+waybar & disown

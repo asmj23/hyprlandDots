@@ -1,0 +1,153 @@
+// Config //
+configuration {
+	modi:                        "drun,filebrowser,window,run";
+	show-icons:                  true;
+	display-drun:                "";
+	display-run:                 "";
+	display-filebrowser:         "";
+	display-window:              "";
+	drun-display-format:         "{name}";
+	window-format:               "{w}{t}";
+	font:                        "JetBrainsMono Nerd Font 10";
+	icon-theme:                  "Tela-circle-dracula-dark";
+}
+
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+
+// Main //
+window {
+    width:                       45%;
+    height:                      35%;
+    transparency:                "real";
+    fullscreen:                  false;
+    enabled:                     true;
+    cursor:                      "default";
+    spacing:                     0px;
+    padding:                     0px;
+    border:                      2px;
+    border-radius:               15px;
+    border-color:                @selected-normal-background;
+    background-color:            transparent;
+}
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    orientation:                 horizontal;
+    children:                    [  "inputbar" , "listbox" ];
+    background-color:            transparent;
+	background-image:            url("~/Pictures/rofi/current.blur");
+}
+
+
+// Inputs //
+inputbar {
+    enabled:                     true;
+    width:                       25%;
+	children:                    [ "mode-switcher"];
+	background-color:            transparent;
+	background-image:            url("~/Pictures/rofi/current.blur",width);
+}
+entry {
+    enabled:                     true;
+    background-color:            @selected-active-background;
+    text-color:                  @selected-active-foreground;
+    margin:                      1px 0px -1000px 0px;
+}
+
+
+// Modes //
+mode-switcher{
+    orientation:                 vertical;
+    enabled:                     true;
+    spacing:                     2px;
+    width:                       2.5%;
+    padding:                     20px 5px 20px 5px;
+    spacing:                     25px;
+    background-color:            transparent;
+	background-image:            url("~/.config/swww/wall.blur");
+}
+button {
+    cursor:                      pointer;
+    border-radius:               50px;
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+button selected {
+    background-color:            @background;
+    text-color:                  @urgent-background;
+}
+
+
+// Lists //
+listbox {
+    spacing:                     0px;
+    padding:                     30px;
+	children:                    [ "entry","listview" ];
+	background-color:            @background;
+}
+listview {
+    enabled:                     true;
+    columns:                     1;
+    margin:                      -100px 0px 0px 0px;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    cursor:                      "default";
+	background-color:            transparent;
+    text-color:                  @foreground;
+}
+
+
+// Elements //
+element {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     2px;
+    border-radius:               20px;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  @normal-foreground;
+}
+element normal.urgent {
+    background-color:            @urgent-background;
+    text-color:                  @urgent-foreground;
+}
+element normal.active {
+    background-color:            @active-background;
+    text-color:                  @active-foreground;
+}
+element selected.normal {
+    background-color:            @selected-normal-background;
+    text-color:                  @selected-normal-foreground;
+}
+element selected.urgent {
+    background-color:            @selected-urgent-background;
+    text-color:                  @selected-urgent-foreground;
+}
+element selected.active {
+    background-color:            @selected-active-background;
+    text-color:                  @selected-active-foreground;
+}
+element-icon {
+    size:                        48px;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+element-text {
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+

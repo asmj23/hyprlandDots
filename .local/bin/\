@@ -1,0 +1,5 @@
+#!/bin/sh 
+
+$wall = $(ps aux |grep swaybg |awk -F'swaybg' '{print $2}')
+
+echo "$wall"

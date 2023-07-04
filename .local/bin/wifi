@@ -1,0 +1,5 @@
+#!/bin/sh
+
+bssid=$(nmcli dev wifi list | sed -n '1!p' | cut -b 9- | wofi --style=/home/ashu/.config/wofi/wifi.css -p "Select Wifi" -d --width=45% | cut -d' ' -f1)
+pass=$(echo "" | wofi --style=/home/ashu/.config/wofi/pass.css -p "Enter the passphrase: " -d --width=15% --height=200px)
+nmcli device wifi connect $bssid password $pass 
